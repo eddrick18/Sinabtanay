@@ -10,7 +10,7 @@ Always perform that label's verified sign when capturing.
 From Windows PowerShell:
 
 ```powershell
-Set-Location 'C:\Users\PREDATOR\Documents\Codex\2026-10-07\files-pasted-by-the-user-project\outputs\signbridge-fsl'
+Set-Location 'C:\path\to\Sinabtanay'
 .\.venv\Scripts\python.exe scripts\collect_data.py --label HELLO --target 5 --dataset data\processed\practice.csv
 ```
 
