@@ -35,6 +35,8 @@ class ImageImporterTests(unittest.TestCase):
         self.root = Path(self.directory.name)
         self.source = self.root / "Collated"
         self.output = self.root / "alphabet.csv"
+        self.hand_model = self.root / "mock_hand_landmarker.task"
+        self.hand_model.write_bytes(b"mock model for provenance hashing")
         self.detector = MagicMock()
         self.detector.detect.side_effect = fake_detection
 
@@ -45,7 +47,8 @@ class ImageImporterTests(unittest.TestCase):
         return path
 
     def run_import(self):
-        with patch("src.dataset.image_importer.HandDetector", return_value=self.detector):
+        with patch("src.dataset.image_importer.HandDetector", return_value=self.detector), \
+                patch("src.dataset.image_importer.settings.HAND_MODEL_PATH", self.hand_model):
             return import_images(self.source, self.output)
 
     def test_import_schema_validation_and_group_split_preserve_unknowns(self):
