@@ -1,0 +1,34 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.idea/
+.vscode/
+.pytest_cache/
+.cache/
+models/pretrained/*.task
+models/**/trained/*.joblib
+models/**/metadata/model_metadata.json
+models/**/metadata/evaluation.json
+models/**/metadata/classification_report.txt
+models/**/metadata/confusion_matrix.png
+*.tmp
+*.log
+data/raw/*
+data/processed/*.csv
+*.mp4
+*.avi
+*.mov
+
+# Local datasets and generated provenance/reports
+data/processed/*
+!data/processed/.gitkeep
+docs/*DATASET_REPORT.txt
+# Credentials and local configuration
+.env
+.env.*
+*.pem
+*.key
+# Local experiment artifacts
+models/**/trained/*
+models/**/metadata/*
